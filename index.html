@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#2d89ef" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Bucket List</title>
+    <meta name="description" content="Manage your lists effortlessly with our JavaScript Bucket List App." />
+    <meta name="keywords" content="JavaScript Bucket List App, List Management, Productivity Tool" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="screen-backdrop"></div>
+      <div class="home-screen screen">
+        <div class="head-wrapper">
+          <div class="menu-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+            </svg>
+          </div>
+          <div class="welcome">
+            <div class="content">
+              <div class="name-wrapper">
+                <h1 id="user-name">Adwait's Bucket</h1>
+                <button class="edit-name-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="img">
+              <div class="backdrop"></div>
+              <img src="images/boy.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="categories-wrapper">
+          <div class="categories"></div>
+        </div>
+      </div>
+      <div class="category-screen screen">
+        <div class="head-wrapper">
+          <div class="back-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+            </svg>
+          </div>
+          <div class="options">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+            </svg>
+          </div>
+        </div>
+        <div class="category-details">
+          <span class="category-icon"></span>
+          <div class="details">
+            <p id="num-lists">0 Lists</p>
+            <h1 id="category-title"></h1>
+          </div>
+        </div>
+        <div class="lists-wrapper">
+          <div class="lists"></div>
+        </div>
+      </div>
+      <div class="add-list-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
+      </div>
+      <div class="black-backdrop"></div>
+      <!-- Add Options Modal -->
+      <div class="add-options">
+        <div class="add-options-backdrop"></div>
+        <h1 class="heading">Choose an Action</h1>
+        <div class="btns">
+          <button class="add-list-option">Add List</button>
+          <button class="add-category-option">Add Category</button>
+        </div>
+      </div>
+      <!-- Add List Form -->
+      <div class="add-list-form">
+        <div class="add-list-backdrop"></div>
+        <h1 class="heading">Add List</h1>
+        <div class="input-group">
+          <label for="list-input">List</label>
+          <input type="text" id="list-input" required />
+        </div>
+        <div class="input-group">
+          <label for="category-select">Category</label>
+          <select id="category-select"></select>
+        </div>
+        <div class="btns">
+          <button class="cancel-btn">Cancel</button>
+          <button class="add-btn">Add</button>
+        </div>
+      </div>
+      <!-- Add Category Form -->
+      <div class="add-category-form">
+        <div class="add-list-backdrop"></div>
+        <h1 class="heading">Add Category</h1>
+        <div class="input-group">
+          <label for="new-category-title">Category</label>
+          <input type="text" id="new-category-title" required />
+        </div>
+        <div class="input-group">
+          <label for="new-category-icon">Icon</label>
+          <select id="new-category-icon"></select>
+        </div>
+        <div class="btns">
+          <button class="cancel-btn">Cancel</button>
+          <button class="add-btn">Add</button>
+        </div>
+      </div>
+      <!-- Edit Name Modal -->
+      <div class="edit-name-modal">
+        <div class="edit-name-backdrop"></div>
+        <h1 class="heading">Edit Name</h1>
+        <div class="input-group">
+          <label for="edit-name-input">New Name</label>
+          <input type="text" id="edit-name-input" required />
+        </div>
+        <div class="btns">
+          <button class="cancel-btn">Cancel</button>
+          <button class="save-name-btn">Save</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
